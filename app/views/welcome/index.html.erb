@@ -1,0 +1,37 @@
+<head>
+  <%= stylesheet_link_tag 'style' %>
+</head>
+
+<body>
+  <header class="header">
+    <section class="container">
+      <nav class="nav">
+        <figure class="logo">
+          <img src="<%= asset_path('logo.png') %>">
+        </figure>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-lable">
+          <img src="<%= asset_path('menuMobileimage.png') %>">
+        </label>
+        <ul class="menu">
+          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'Shop by Catergory', root_path %></li>
+          <li><%= link_to 'My List', root_path %></li>
+          <li><%= link_to 'Sign Up', sign_up_path %></li>
+          <li><%= link_to 'Log In', sign_in_path %></li>
+        </ul>
+      </nav>
+    </section>
+  </header>
+
+  <h1>Online Grocery</h1>
+  <% if Current.user %>
+    Logged in as: <%= Current.user.email %><br>
+    <%= link_to 'Edit Password', edit_password_path %>
+    <%= button_to 'Logout', logout_path, method: :delete %>
+  <% else %>
+  <%= link_to 'Sign Up', sign_up_path %>
+  or
+  <%= link_to 'Login', sign_in_path %>
+  <% end %>
+</body>
