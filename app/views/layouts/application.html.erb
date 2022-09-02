@@ -13,6 +13,7 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <%= render partial: "cart/cart" if @render_cart %>
     <%= yield %>
   </body>
 </html>
